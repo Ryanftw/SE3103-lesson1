@@ -11,12 +11,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import controller.ButtonClickListener;
+import model.Calculator;
 
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 
 public class CalculatorSimulator {
 
+	private Calculator calculator = new Calculator();
 	private JFrame window;
 	private JTextArea display = new JTextArea();
 	private JButton addButton = new JButton("+");
@@ -30,6 +32,7 @@ public class CalculatorSimulator {
 
 	public CalculatorSimulator(JFrame window) {
 		this.window = window;
+		window.setTitle("Calculator Simulator");
 	}
 
 	public void init() {
@@ -97,5 +100,21 @@ public class CalculatorSimulator {
 
 	public JButton getExitButton() {
 		return exitButton;
+	}
+
+	public JFrame getWindow() {
+		return window;
+	}
+
+	public Calculator getCalculator() {
+		return calculator;
+	}
+
+	public JTextField getNumField() {
+		return numField;
+	}
+
+	public JTextArea getDisplay() {
+		return display;
 	}
 }

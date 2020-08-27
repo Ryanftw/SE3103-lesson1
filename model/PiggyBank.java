@@ -1,18 +1,19 @@
 package model;
 
+import java.util.ArrayList;
+
 public class PiggyBank {
 
+	private ArrayList<Coin> coinHistory = new ArrayList<>();
 	private int balance;
-	private int coinCount;
 
 	public PiggyBank() {
 		balance = 0;
-		coinCount = 0;
 	}
 
 	public void enter(Coin c) {
-		++coinCount;
 		balance += c.getValue();
+		coinHistory.add(c);
 	}
 
 	public int getBalance() {
@@ -20,11 +21,15 @@ public class PiggyBank {
 	}
 
 	public int getCoinCount() {
-		return coinCount;
+		return coinHistory.size();
 	}
 
 	@Override
 	public String toString() {
-		return "Balance = " + balance + ", Coin count = " + coinCount;
+		return "Balance = " + balance + ", Coin count = " + coinHistory.size();
+	}
+
+	public ArrayList<Coin> getCoinHistory() {
+		return coinHistory;
 	}
 }

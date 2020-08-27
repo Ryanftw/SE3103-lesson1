@@ -36,7 +36,14 @@ public class MenuScreen {
 			window.pack();
 			window.revalidate();
 		});
-		piggyBankButton.addActionListener(e -> System.out.println("PiggyBank Button Is Pressed"));
+		piggyBankButton.addActionListener(e -> {
+			window.getContentPane().removeAll();
+			var piggyBank = new PiggyBankSimulator(window);
+			piggyBank.init();
+			window.pack();
+			window.revalidate();
+		});
+
 	}
 
 }

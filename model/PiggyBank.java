@@ -23,4 +23,8 @@ public class PiggyBank {
 		return coinCount;
 	}
 
+	@Override
+	public String toString() {
+		return "Balance = " + balance + ", Coin count = " + coinCount;
+	}
 }

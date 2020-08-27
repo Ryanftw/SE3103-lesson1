@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import controller.PBInsertListener;
+import model.Coin;
 import model.PiggyBank;
 
 public class PiggyBankSimulator {
@@ -43,10 +44,10 @@ public class PiggyBankSimulator {
 		cp.add(BorderLayout.SOUTH, southPanel);
 
 		radioButtons = new JRadioButton[3];
-		radioButtons[0] = new JRadioButton("Nickel");
+		radioButtons[0] = new JRadioButton(Coin.NICKEL);
 		radioButtons[0].setSelected(true);
-		radioButtons[1] = new JRadioButton("Dime");
-		radioButtons[2] = new JRadioButton("Quarter");
+		radioButtons[1] = new JRadioButton(Coin.DIME);
+		radioButtons[2] = new JRadioButton(Coin.QUARTER);
 
 		JPanel radioPanel = new JPanel();
 		ButtonGroup radioGroup = new ButtonGroup();

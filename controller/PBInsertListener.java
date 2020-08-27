@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import model.Coin;
 import view.PiggyBankSimulator;
 
 public class PBInsertListener implements ActionListener {
@@ -17,7 +18,30 @@ public class PBInsertListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		String buttonLabel = "";
+		for (var b : panel.getRadioButtons()) {
+			if (b.isSelected()) {
+				buttonLabel = b.getText();
+				break;
+			}
+		}
+		int value = 0;
+		switch (buttonLabel) {
+			case Coin.NICKEL:
+				value = 5;
+				break;
+			case Coin.DIME:
+				value = 10;
+				break;
+			case Coin.QUARTER:
+				value = 25;
+				break;
+		}
+
+		var c = new Coin(value);
+		panel.getPiggyBank().enter(c);
+		String m = panel.getDisplay().getText();
+		panel.getDisplay().setText(m + "\nInserted: " + c + " | " + panel.getPiggyBank());
 
 	}
 

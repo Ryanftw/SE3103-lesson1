@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 
 import controller.PBHistoryListener;
 import controller.PBInsertListener;
+import controller.PBStatsListener;
 import model.Coin;
 import model.PiggyBank;
 
@@ -63,7 +64,15 @@ public class PiggyBankSimulator {
 		var historyButton = new JButton("History");
 		historyButton.addActionListener(new PBHistoryListener(this));
 		var statsButton = new JButton("Stats");
+		statsButton.addActionListener(new PBStatsListener(this));
 		var exitButton = new JButton("Exit");
+		exitButton.addActionListener(e -> {
+			window.getContentPane().removeAll();
+			var menu = new MenuScreen(window);
+			menu.init();
+			window.pack();
+			window.revalidate();
+		});
 
 		JPanel buttonPanel = new JPanel();
 		southPanel.add(buttonPanel);
